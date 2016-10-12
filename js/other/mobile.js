@@ -42,7 +42,7 @@ function loadViaMozActivity () {
 
 function loadViaXHR () {
   var xhr = new XMLHttpRequest();
-  xhr.open("GET", "pokeblue.gb");
+  xhr.open("GET", "Pokeblue.gb");
   xhr.responseType = "blob";
   xhr.onload = function () {
     startGame(new Blob([this.response], { type: "text/plain" }));
