@@ -42,7 +42,7 @@ function loadViaMozActivity () {
 
 function loadViaXHR () {
   var xhr = new XMLHttpRequest();
-  xhr.open("GET", alert("Enter rom to load:\nValid roms are-\nPokeblue\nPokecrys\nTetris\nMario1\nMario2",""));
+  xhr.open("GET", prompt("Enter rom to load:\nValid roms are-\nPokeblue\nPokecrys\nTetris\nMario1\nMario2",""));
   xhr.responseType = "blob";
   xhr.onload = function () {
     startGame(new Blob([this.response], { type: "text/plain" }));
