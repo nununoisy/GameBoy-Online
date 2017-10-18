@@ -98,8 +98,8 @@ html, body {
 }
 
 #d_pad {
-  width: 70px;
-  height: 70px;
+  width: 280px;
+  height: 280px;
   position: relative;
   top: 20px;
   left: 10%;
