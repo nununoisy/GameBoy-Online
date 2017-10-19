@@ -66,8 +66,8 @@ html, body {
 }
 
 #canvas_container {
-  width: 35%;
-  height: 50%;
+  width: 20%;
+  height: 100%;
   margin: 20px auto 0 auto;
 }
 
