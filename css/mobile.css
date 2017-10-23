@@ -72,7 +72,7 @@ html, body {
   bottom: 0;
   position: fixed;
   width: 100%;
-  height: 100%;
+  height: 150%;
 }
 
 #screen_cover > div:last-child {
