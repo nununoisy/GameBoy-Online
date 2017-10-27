@@ -41,6 +41,7 @@ function loadViaMozActivity () {
 };
 
 function loadViaXHR () {
+  return;
   var xhr = new XMLHttpRequest();
   xhr.open("GET", prompt("Enter rom to load:\nValid roms are-\nPokeblue\nPokecrys\nTetris\nMario1\nMario2",""));
   xhr.responseType = "blob";
@@ -49,6 +50,17 @@ function loadViaXHR () {
   };
   xhr.send();
 };
+
+var input = document.getElementById("fileInput");
+
+input.addEventListener('change', loadViaFileInput);
+
+function loadViaFileInput() {
+	input.style.display = "none";
+	if (input.files.length === 0) return;
+	var rom = input.files[0];
+	startGame(rom);
+}
 
 function shim (eles) {
   function onDown (e) {
