@@ -92,10 +92,10 @@ function registerTouchEventShim () {
   shim([
     $("a_button_group"),
     $("b_button_group"),
-    $("arrow_up"),
-    $("arrow_down"),
-    $("arrow_right"),
-    $("arrow_left"),
+    $("d_pad_up"),
+    $("d_pad_down"),
+    $("d_pad_right"),
+    $("d_pad_left"),
     $("select_button_group"),
     $("start_button_group")
   ]);

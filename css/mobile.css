@@ -178,10 +178,8 @@ html, body {
   border-bottom: 10px solid transparent;
 }
 
-#arrow_right > p {
-  border-left: 20px solid black;
-  border-top: 10px solid transparent;
-  border-bottom: 10px solid transparent;
+#arrow_right {
+  height:100%
 }
 #arrow_down > p {
   border-left: 10px solid transparent;
