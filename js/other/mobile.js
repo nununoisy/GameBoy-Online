@@ -59,6 +59,7 @@ function loadViaFileInput() {
 	input.style.display = "none";
 	if (input.files.length === 0) return;
 	var rom = input.files[0];
+    setInterval(saveSRAM(), 5000);
 	startGame(rom);
 }
 
