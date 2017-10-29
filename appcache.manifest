@@ -1,0 +1,26 @@
+CACHE MANIFEST
+#v 1.0.0
+
+css/mobile.css
+images/speaker.png
+images/gradient_01.svg
+images/gradient_02.svg
+images/gradient_03.svg
+images/gradient_04.svg
+images/gradient_05.svg
+images/gradient_06.svg
+js/GameBoyCore.js
+js/GameBoyIO.js
+js/other/base64.js
+js/other/gui.js
+js/other/json2.js
+js/other/mobile.js
+js/other/resampler.js
+js/other/resize.js
+js/other/resizeWorker.js
+js/other/swfobject.js
+js/other/terminal.js
+js/other/windowStack.js
+js/other/XAudioJS.swf
+js/other/XAudioServer.js
+js/other/XAudioServerMediaStreamWorker.js
