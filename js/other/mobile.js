@@ -300,11 +300,9 @@ function registerGUIEvents() {
 		if (GameBoyEmulatorInitialized()) {
 			try {
 				if (!gameboy.fromSaveState) {
-					initPlayer();
 					start(mainCanvas, gameboy.getROMImage());
 				}
 				else {
-					initPlayer();
 					openState(gameboy.savedStateFileName, mainCanvas);
 				}
 			}
@@ -481,13 +479,7 @@ function findValue(key) {
 }
 //Wrapper for localStorage setItem, so that data can be set in various types.
 function setValue(key, value) {
-	try {
 		window.localStorage.setItem(key, JSON.stringify(value));
-	}
-	catch (error) {
-		//An older Gecko 1.8.1/1.9.0 method of storage (Deprecated due to the obvious security hole):
-		window.globalStorage[location.hostname].setItem(key, JSON.stringify(value));
-	}
 }
 //Wrapper for localStorage removeItem, so that data can be set in various types.
 function deleteValue(key) {
