@@ -51,6 +51,10 @@ function loadViaXHR () {
   xhr.send();
 };
 
+var spkr = document.getElementById("speaker");
+
+spkr.addEventListener('click', gbDebugger);
+
 var input = document.getElementById("fileInput");
 
 input.addEventListener('change', loadViaFileInput);
@@ -718,7 +722,7 @@ function removeEvent(sEvent, oElement, fListener) {
 	}
 }
 
-function debugger() {
+function gbDebugger() {
 if (!GameBoyEmulatorInitialized()) return;
 var cmd = prompt("DEBUG:", "");
 if (cmd === "reset") {
