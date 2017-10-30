@@ -735,3 +735,4 @@ gameboy.memoryWrite(parseInt(prompt("Address (use 0x for hex):","")), parseInt(p
 gameboy.programCounter = parseInt(prompt("Address (use 0x for hex):",""));
 }
 }
+}
