@@ -717,3 +717,21 @@ function removeEvent(sEvent, oElement, fListener) {
 		cout("In removeEvent() : Nonstandard detachEvent() called to remove an \"on" + sEvent + "\" event.", -1);
 	}
 }
+
+function debugger() {
+if (!GameBoyEmulatorInitialized()) return;
+var cmd = prompt("DEBUG:", "");
+if (cmd === "reset") {
+start(mainCanvas, gameboy.getROMImage());
+} else if (cmd === "saveState") {
+window.localStorage.setItem("STATE_" + gameboy.name, gameboy.saveState());
+} else if (cmd === "loadState") {
+gameboy.returnFromState(window.localStorage.getItem("STATE_" + gameboy.name));
+} else if (cmd === "getMem") {
+alert(gameboy.memoryRead(parseInt(prompt("Address (use 0x for hex):",""))));
+} else if (cmd === "setMem") {
+gameboy.memoryWrite(parseInt(prompt("Address (use 0x for hex):","")), parseInt(prompt("Value (use 0x for hex):","")));
+} else if (cmd === "jump") {
+gameboy.programCounter = parseInt(prompt("Address (use 0x for hex):",""));
+}
+}
