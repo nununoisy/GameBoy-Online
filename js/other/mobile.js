@@ -51,6 +51,9 @@ function loadViaXHR () {
   xhr.send();
 };
 
+var input = document.getElementById("fileInput");
+input.addEventListener('change', loadViaFileInput);
+
 function loadViaFileInput() {
 	input.style.display = "none";
 	if (input.files.length === 0) return;
@@ -130,12 +133,7 @@ function pickRandomColor () {
 function windowingInitialize() {
 	cout("windowingInitialize() called.", 0);
 	var spkr = document.getElementById("speaker");
-
-spkr.addEventListener('click', gbDebugger);
-
-var input = document.getElementById("fileInput");
-
-input.addEventListener('change', loadViaFileInput);
+        spkr.addEventListener('click', gbDebugger);
   pickRandomColor();
 	mainCanvas = document.getElementById("mainCanvas");
   registerTouchEventShim();
