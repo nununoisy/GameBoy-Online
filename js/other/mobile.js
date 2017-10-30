@@ -51,14 +51,6 @@ function loadViaXHR () {
   xhr.send();
 };
 
-var spkr = document.getElementById("speaker");
-
-spkr.addEventListener('click', gbDebugger);
-
-var input = document.getElementById("fileInput");
-
-input.addEventListener('change', loadViaFileInput);
-
 function loadViaFileInput() {
 	input.style.display = "none";
 	if (input.files.length === 0) return;
@@ -66,6 +58,25 @@ function loadViaFileInput() {
     setInterval(saveSRAM, 5000);
 	startGame(rom);
 }
+
+function gbDebugger() {
+if (!GameBoyEmulatorInitialized()) return;
+var cmd = prompt("DEBUG:", "");
+if (cmd === "reset") {
+start(mainCanvas, gameboy.getROMImage());
+} else if (cmd === "saveState") {
+window.localStorage.setItem("STATE_" + gameboy.name, gameboy.saveState());
+} else if (cmd === "loadState") {
+gameboy.returnFromState(window.localStorage.getItem("STATE_" + gameboy.name));
+} else if (cmd === "getMem") {
+alert(gameboy.memoryRead(parseInt(prompt("Address (use 0x for hex):",""))));
+} else if (cmd === "setMem") {
+gameboy.memoryWrite(parseInt(prompt("Address (use 0x for hex):","")), parseInt(prompt("Value (use 0x for hex):","")));
+} else if (cmd === "jump") {
+gameboy.programCounter = parseInt(prompt("Address (use 0x for hex):",""));
+}
+}
+
 
 function shim (eles) {
   function onDown (e) {
@@ -118,6 +129,13 @@ function pickRandomColor () {
 
 function windowingInitialize() {
 	cout("windowingInitialize() called.", 0);
+	var spkr = document.getElementById("speaker");
+
+spkr.addEventListener('click', gbDebugger);
+
+var input = document.getElementById("fileInput");
+
+input.addEventListener('change', loadViaFileInput);
   pickRandomColor();
 	mainCanvas = document.getElementById("mainCanvas");
   registerTouchEventShim();
@@ -722,21 +740,3 @@ function removeEvent(sEvent, oElement, fListener) {
 	}
 }
 
-function gbDebugger() {
-if (!GameBoyEmulatorInitialized()) return;
-var cmd = prompt("DEBUG:", "");
-if (cmd === "reset") {
-start(mainCanvas, gameboy.getROMImage());
-} else if (cmd === "saveState") {
-window.localStorage.setItem("STATE_" + gameboy.name, gameboy.saveState());
-} else if (cmd === "loadState") {
-gameboy.returnFromState(window.localStorage.getItem("STATE_" + gameboy.name));
-} else if (cmd === "getMem") {
-alert(gameboy.memoryRead(parseInt(prompt("Address (use 0x for hex):",""))));
-} else if (cmd === "setMem") {
-gameboy.memoryWrite(parseInt(prompt("Address (use 0x for hex):","")), parseInt(prompt("Value (use 0x for hex):","")));
-} else if (cmd === "jump") {
-gameboy.programCounter = parseInt(prompt("Address (use 0x for hex):",""));
-}
-}
-}
