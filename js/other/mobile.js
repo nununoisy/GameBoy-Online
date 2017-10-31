@@ -64,16 +64,16 @@ function loadViaFileInput() {
 
 function gbDebugger() {
 if (!GameBoyEmulatorInitialized()) return;
-var cmd = prompt("DEBUG:", "");
+var cmd = toLowerCase(prompt("DEBUG:", ""));
 if (cmd === "reset") {
 start(mainCanvas, gameboy.getROMImage());
-} else if (cmd === "saveState") {
-window.localStorage.setItem("STATE_" + gameboy.name, gameboy.saveState());
-} else if (cmd === "loadState") {
-gameboy.returnFromState(window.localStorage.getItem("STATE_" + gameboy.name));
-} else if (cmd === "getMem") {
+} else if (cmd === "savestate") {
+window.localStorage.setItem("STATE_" + gameboy.name, JSON.stringify(gameboy.saveState()));
+} else if (cmd === "loadstate") {
+gameboy.returnFromState(JSON.parse(window.localStorage.getItem("STATE_" + gameboy.name)));
+} else if (cmd === "getmem") {
 alert(gameboy.memoryRead(parseInt(prompt("Address (use 0x for hex):",""))));
-} else if (cmd === "setMem") {
+} else if (cmd === "setmem") {
 gameboy.memoryWrite(parseInt(prompt("Address (use 0x for hex):","")), parseInt(prompt("Value (use 0x for hex):","")));
 } else if (cmd === "jump") {
 gameboy.programCounter = parseInt(prompt("Address (use 0x for hex):",""));
