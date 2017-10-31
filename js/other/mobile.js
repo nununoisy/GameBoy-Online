@@ -62,15 +62,17 @@ function loadViaFileInput() {
 	startGame(rom);
 }
 
+var saveStateObj = [];
+
 function gbDebugger() {
 if (!GameBoyEmulatorInitialized()) return;
 var cmd = prompt("DEBUG:", "").toLowerCase();
 if (cmd === "reset") {
 start(mainCanvas, gameboy.getROMImage());
 } else if (cmd === "savestate") {
-window.localStorage.setItem("STATE_" + gameboy.name, JSON.stringify(gameboy.saveState()));
+saveStateObj = gameboy.saveState();
 } else if (cmd === "loadstate") {
-gameboy.returnFromState(JSON.parse(window.localStorage.getItem("STATE_" + gameboy.name)));
+gameboy.returnFromState(saveStateObj);
 } else if (cmd === "getmem") {
 alert(gameboy.memoryRead(parseInt(prompt("Address (use 0x for hex):",""))));
 } else if (cmd === "setmem") {
