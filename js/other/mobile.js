@@ -64,7 +64,7 @@ function loadViaFileInput() {
 
 function gbDebugger() {
 if (!GameBoyEmulatorInitialized()) return;
-var cmd = toLowerCase(prompt("DEBUG:", ""));
+var cmd = prompt("DEBUG:", "").toLowerCase();
 if (cmd === "reset") {
 start(mainCanvas, gameboy.getROMImage());
 } else if (cmd === "savestate") {
