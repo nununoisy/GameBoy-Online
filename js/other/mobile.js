@@ -58,7 +58,7 @@ function applyGSCheats() {
 	if (gamesharkCheats.length === 0) return;
 	for (i=0;i<gamesharkCheats.length;i++) {
 		for (j=0;j<4;j++) {
-			gamesharkBuffer[j] = gamesharkCheats[i].substring(2*j,(2*j)+1);
+			gamesharkBuffer[j] = gamesharkCheats[i].substring(2*j,2*(j+1));
 		}
 		if (gamesharkBuffer[0] === "01") {
 			gameboy.memoryWrite(parseInt(gamesharkBuffer[3] + gamesharkBuffer[2], 16), parseInt(gamesharkBuffer[1], 16));
