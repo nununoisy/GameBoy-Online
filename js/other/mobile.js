@@ -55,6 +55,7 @@ var gamesharkCheats = [];
 var gamesharkBuffer = ["00","00","00","00"];
 
 function applyGSCheats() {
+	alert("debug msg");
 	if (gamesharkCheats.length === 0) return;
 	document.getElementById("nintendo").innerHTML = "NINTENDO";
 	for (i=0;i<gamesharkCheats.length;i++) {
