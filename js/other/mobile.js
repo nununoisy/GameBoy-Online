@@ -51,6 +51,21 @@ function loadViaXHR () {
   xhr.send();
 };
 
+var gamesharkCheats = [];
+var gamesharkBuffer = ["00","00","00","00"];
+
+function applyGSCheats() {
+	if (gamesharkCheats.length === 0) return;
+	for (i=0;i<gamesharkCheats.length;i++) {
+		for (j=0;j<4;j++) {
+			gamesharkBuffer[j] = gamesharkCheats[i].substring(2*j,(2*j)+1);
+		}
+		if (gamesharkBuffer[0] === "01") {
+			gameboy.memoryWrite(parseInt(gamesharkBuffer[3] + gamesharkBuffer[2], 16), parseInt(gamesharkBuffer[1], 16));
+		}
+	}
+}
+
 var input = document.getElementById("fileInput");
 input.addEventListener('change', loadViaFileInput);
 
@@ -59,6 +74,7 @@ function loadViaFileInput() {
 	if (input.files.length === 0) return;
 	var rom = input.files[0];
     setInterval(saveSRAM, 5000);
+	setInterval(applyGSCheats, 16);
 	startGame(rom);
 }
 
