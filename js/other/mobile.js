@@ -95,6 +95,10 @@ alert(gameboy.memoryRead(parseInt(prompt("Address (use 0x for hex):",""))));
 gameboy.memoryWrite(parseInt(prompt("Address (use 0x for hex):","")), parseInt(prompt("Value (use 0x for hex):","")));
 } else if (cmd === "jump") {
 gameboy.programCounter = parseInt(prompt("Address (use 0x for hex):",""));
+} else if (cmd === "gscode") {
+var gsCode = prompt("Gameshark code (1 line):", "");
+if (gsCode.length !== 8) return;
+gamesharkCheats.push(gsCode);
 }
 }
 
