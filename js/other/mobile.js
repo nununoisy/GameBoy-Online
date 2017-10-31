@@ -75,8 +75,10 @@ function loadViaFileInput() {
 	input.style.display = "none";
 	if (input.files.length === 0) return;
 	var rom = input.files[0];
-    setInterval(saveSRAM, 5000);
-	setInterval(applyGSCheats, 16);
+        setInterval(function() {
+		saveSRAM();
+		applyGSCheats();
+	}, 16);
 	startGame(rom);
 }
 
