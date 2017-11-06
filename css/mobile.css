@@ -215,7 +215,7 @@ html, body {
 }
 
 .button_group div {
-  width: 40px;
+  width: 80px;
   background-color: #525E59;
   border-radius: 20px;
   margin: 0 auto 10px auto;
@@ -223,11 +223,11 @@ html, body {
 }
 
 .button_group .round_button {
-  height: 40px;
+  height: 80px;
 }
 
 .button_group .flat_button {
-  height: 15px;
+  height: 30px;
 }
 
 #speaker {
