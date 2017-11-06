@@ -71,6 +71,7 @@ var input = document.getElementById("fileInput");
 input.addEventListener('change', loadViaFileInput);
 
 function loadViaFileInput() {
+	settings[4] = true;
 	input.style.display = "none";
 	if (input.files.length === 0) return;
 	var rom = input.files[0];
