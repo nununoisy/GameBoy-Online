@@ -107,6 +107,9 @@ html, body {
   position: relative;
   top: 20px;
   left: 10%;
+  -webkit-touch-callout: none;
+  -webkit-text-select: none;
+  user-select: none;
 }
 
 #d_pad > div {
@@ -190,21 +193,33 @@ html, body {
 #a_button_group {
   left: 75%;
   top: 55%;
+  -webkit-touch-callout: none;
+  -webkit-text-select: none;
+  user-select: none;
 }
 
 #b_button_group {
   left: 55%;
   top: 60%;
+  -webkit-touch-callout: none;
+  -webkit-text-select: none;
+  user-select: none;
 }
 
 #select_button_group {
   left: 33%;
   top: 85%;
+  -webkit-touch-callout: none;
+  -webkit-text-select: none;
+  user-select: none;
 }
 
 #start_button_group {
   right: 33%;
-  top: 85%
+  top: 85%;
+  -webkit-touch-callout: none;
+  -webkit-text-select: none;
+  user-select: none;
 }
 
 .button_group {
